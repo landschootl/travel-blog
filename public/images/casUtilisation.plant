@@ -1,0 +1,63 @@
+@startuml
+/':First Actor:
+:Another\nactor: as Men2  
+actor Men3
+actor :Last actor: as Men4
+
+
+(First usecase)
+(Another usecase) as (UC2)  
+usecase UC3
+usecase (Last\nusecase) as UC4
+
+
+User -> (Start)
+User --> (Use the application) : A small label
+
+:Main Admin: ---> (Use the application) : This is\nyet another\nlabel
+
+
+:Main Admin: as Admin
+(Use the application) as (Use)
+
+User -> (Start)
+User --> (Use)
+
+Admin ---> (Use)
+
+note right of Admin : This is an example.
+
+note right of (Use)
+  A note can also
+  be on several lines
+end note
+
+note "This note is connected\nto several objects." as N2
+(Start) .. N2
+N2 .. (Use)
+'/
+:Visiteur Identifié: as Gérant
+:Visiteur Anonyme: as Client
+
+(Ajout/modification\n d'un voyage) as (voyage)
+(Ajout/modification\n d'une étape) as (etape)
+(Identification/Authentification) as (identification)
+(Ajout/Suppression\n média) as (media)
+(Annotation d'un voyage) as annotation
+Gérant --> (voyage)
+Gérant --> (etape)
+Gérant --> (Visualisation de voyages et d'étapes)
+Gérant --> (annotation)
+Client  --> (Visualisation de voyages et d'étapes)
+Client --> (Inscription)
+/' Client --> (identification)'/
+
+(Ajout/Suppression\n étape) .down.> (voyage) : extends
+(media) .down.> (voyage) : extends
+(media) .down.> (etape) : extends
+(identification) <.up. (etape) : include
+(identification) <.up. (voyage) : include
+(identification) <.up. (annotation) : include
+
+
+@enduml

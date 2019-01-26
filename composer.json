@@ -1,0 +1,17 @@
+{
+    "name": "marathon/marathon",
+    "description": "projet marathon",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "author's name",
+            "email": "email@example.com"
+        }
+    ],
+    "require": {
+        "michelf/php-markdown": "1.4.1",
+        "ircmaxell/password-compat": "1.0.3",
+        "raveren/kint": "v0.9.1"
+    }
+}
